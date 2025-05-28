@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="tr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Parola Kasam - Gizlilik Politikası</title>
+    <style>
+        body { 
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol"; 
+            line-height: 1.6; 
+            padding: 20px; 
+            max-width: 800px; 
+            margin: 20px auto; 
+            color: #333;
+        }
+        h1 { 
+            color: #111; 
+            border-bottom: 1px solid #eee;
+            padding-bottom: 10px;
+        }
+        h2 { 
+            color: #222; 
+            margin-top: 30px;
+        }
+        p, li { 
+            color: #444; 
+            margin-bottom: 10px;
+        }
+        strong, b { 
+            font-weight: bold; 
+        }
+        ul { 
+            margin-left: 20px; 
+            padding-left: 0; 
+        }
+        a {
+            color: #007bff;
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        .container {
+            background-color: #f9f9f9;
+            border: 1px solid #ddd;
+            padding: 20px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1><center>Parola Kasam Gizlilik Politikası</center></h1>
+        <p><strong>Son Güncelleme: 28 Mayıs 2025</strong></p> <p>Parola Kasam ("Uygulama"), Bektaş GÜRSU ("Geliştirici") tarafından geliştirilmiştir. Bu Gizlilik Politikası, Uygulama'yı kullandığınızda topladığımız, kullandığımız, sakladığımız ve koruduğumuz bilgilere ilişkin politikalarımızı ve prosedürlerimizi açıklamaktadır.</p>
+        <p>Uygulamamızı kullanarak, bu Gizlilik Politikasında açıklanan veri işleme uygulamalarını kabul etmiş olursunuz.</p>
+
+        <h2>1. Topladığımız Bilgiler ve Nasıl Saklandığı</h2>
+        <p>Uygulama, işlevlerini yerine getirebilmek için aşağıdaki bilgileri <b>yalnızca sizin cihazınızda, yerel olarak</b> saklar. Bu bilgiler kesinlikle Geliştiriciye veya herhangi bir üçüncü tarafa gönderilmez.</p>
+        <ul>
+            <li><b>Kullanıcı Adı:</b> Uygulamaya kayıt olurken belirlediğiniz kullanıcı adınız, giriş ekranında kullanılır.</li>
+            <li><b>Ana Parola Bilgileri:</b> Ana parolanızın kendisi <u>asla saklanmaz</u>. Bunun yerine, giriş doğrulama amacıyla ana parolanızın BCrypt algoritması ile güçlü bir şekilde hashlenmiş (karma) hali ve bu hash işlemi için kullanılan benzersiz bir tuz (salt) değeri saklanır.</li>
+            <li><b>Veri Şifreleme Tuzu (DEK Tuzu):</b> Ana parolanızdan Veri Şifreleme Anahtarınızın (DEK) türetilmesi için kullanılan, kullanıcıya özel ikinci bir benzersiz tuz değeri saklanır.</li>
+            <li><b>Şifre Kayıtlarınız:</b> Uygulamaya kaydettiğiniz hizmet adları, bu hizmetlere ait kullanıcı adları, parolalar ve notlar. Bu parolalar ve notlar, ana parolanızdan türetilen Veri Şifreleme Anahtarı (DEK) kullanılarak AES-256 bit gibi güçlü bir şifreleme algoritması ile şifrelenmiş olarak cihazınızda saklanır.</li>
+            <li><b>Biyometrik Ayar Bilgileri (Eğer Etkinleştirdiyseniz):</b> Biyometrik kimlik doğrulama ile hızlı giriş yapabilmeniz için, Veri Şifreleme Anahtarınızın (DEK) Android Keystore sistemi tarafından korunan bir anahtarla şifrelenmiş hali, bu şifreleme için kullanılan IV (Initialization Vector) ve kullanıcınızın DEK tuzu gibi teknik veriler, cihazınızdaki uygulamaya özel SharedPreferences alanında saklanır. <b>Uygulama, parmak izi, yüz verisi gibi biyometrik verilerinizin kendisini kesinlikle toplamaz, saklamaz veya bunlara erişmez.</b> Biyometrik doğrulama işlemi tamamen Android işletim sistemi tarafından güvenli bir şekilde yönetilir.</li>
+            <li><b>Uygulama Ayarları:</b> Dil tercihi, otomatik kilitleme süresi, pano temizleme süresi gibi uygulama içi ayarlarınız SharedPreferences içinde yerel olarak saklanır.</li>
+        </ul>
+
+        <h2>2. Bilgilerinizi Nasıl Kullanırız?</h2>
+        <p>Cihazınızda yerel olarak saklanan bilgileriniz aşağıdaki amaçlarla kullanılır:</p>
+        <ul>
+            <li>Belirlediğiniz kullanıcı adı ve ana parola (hashlenmiş hali) ile uygulamaya güvenli bir şekilde giriş yapmanızı sağlamak.</li>
+            <li>Girdiğiniz hizmet adı, kullanıcı adı, parola ve notları güvenli bir şekilde (şifrelenmiş olarak) saklamak ve ihtiyaç duyduğunuzda size (şifresini çözerek) göstermek.</li>
+            <li>Ana parolanız ve DEK tuzunuzu kullanarak Veri Şifreleme Anahtarınızı (DEK) türetmek ve bu anahtarla verilerinizi şifrelemek/çözmek.</li>
+            <li>Eğer etkinleştirdiyseniz, biyometrik kimlik doğrulama ile Android Keystore anahtarını kullanarak şifrelenmiş DEK\'inizi çözmek ve oturumunuzu başlatmak.</li>
+            <li>İsteğiniz üzerine verilerinizi yedeklemek ve yedekten geri yüklemek.</li>
+        </ul>
+
+        <h2>3. Veri Depolama ve Güvenlik</h2>
+        <ul>
+            <li><b>Tüm verileriniz (kullanıcı bilgileriniz, şifrelenmiş parolalarınız, ayarlarınız) sadece ve sadece kendi cihazınızın yerel depolama alanında (uygulamanın özel dizininde) saklanır.</b></li>
+            <li>Verileriniz AES-256 (veya benzeri güçlü) şifreleme ile korunur. Şifreleme için kullanılan anahtar (DEK), ana parolanızdan PBKDF2 gibi güçlü bir anahtar türetme fonksiyonu ile kullanıcıya özel bir tuz kullanılarak türetilir.</li>
+            <li>Ana parolanızın güvenliğinden ve hatırlanmasından tamamen siz sorumlusunuz. <b>Ana parolanızı unutmanız durumunda, cihazınızdaki şifrelenmiş verilere erişim kalıcı olarak kaybolur ve bu veriler Geliştirici dahil hiç kimse tarafından kurtarılamaz.</b></li>
+            <li>Uygulama, Android sisteminin sunduğu ekran görüntüsü alma engelleme (FLAG_SECURE) özelliğini kullanır.</li>
+        </ul>
+
+        <h2>4. Veri Paylaşımı</h2>
+        <p>Uygulama, cihazınızda sakladığı hiçbir veriyi (kullanıcı adınız, ana parola hash\'iniz, şifre kayıtlarınız, notlarınız vb.) Geliştiriciyle, herhangi bir sunucuyla veya üçüncü taraflarla <b>kesinlikle paylaşmaz veya internet üzerinden göndermez.</b> Uygulamanın temel işlevleri internet bağlantısı gerektirmez.</p>
+
+        <h2>5. Yedekleme ve Geri Yükleme</h2>
+        <ul>
+            <li>Uygulama, verilerinizi manuel olarak yedeklemenize ve geri yüklemenize olanak tanır.</li>
+            <li><b>Yedekleme:</b> Yedekleme işlemi sizin tarafınızdan başlatılır. Yedek dosyası oluşturulurken, o anki <b>ana parolanız</b> istenir. Tüm verileriniz (kullanıcı bilgileriniz, orijinal DEK tuzunuz, orijinal giriş hash\'iniz ve DEK ile şifrelenmiş parola kayıtlarınız dahil) bir JSON dosyasına yazılır ve bu JSON dosyası, girdiğiniz ana parola ve yedek dosyasına özel yeni bir tuz kullanılarak şifrelenir. Şifrelenmiş yedek dosyası, cihazınızda sizin seçtiğiniz bir konuma (Storage Access Framework aracılığıyla) kaydedilir. Dosya adı, uygulamaya özgü bir ön ek ve bir zaman damgasından oluşur (Örnek: ParolaKasamYedek_YYYYAAGG_SSDDSS.pmbak) ve kullanıcı adınızı ifşa etmez.</li>
+            <li><b>Geri Yükleme:</b> Bir yedek dosyasını geri yüklemek istediğinizde, <b>o yedeği oluştururken kullandığınız ana parolayı</b> girmeniz gerekir.
+                <ul>
+                <li><b>Temiz Kurulumda (Giriş Ekranından):</b> Uygulamada hiç kullanıcı yoksa, bu yöntemle yedekten kullanıcı hesabınız ve verileriniz oluşturulur. Eğer yedekteki kullanıcı adı cihazda zaten varsa, işlem durdurulur.</li>
+                <li><b>Mevcut Hesaba (Ayarlar\'dan):</b> Giriş yapmışken bu yöntemi kullanırsanız, yedekteki veriler mevcut hesabınızdaki şifrelerin üzerine yazılır. Veriler, mevcut ana parolanızla uyumlu hale getirilir.</li>
+                </ul>
+            </li>
+        </ul>
+
+        <h2>6. Android Otomatik Yedekleme (Auto Backup)</h2>
+        <p>Güvenliğiniz için, hassas verileri içeren uygulama veritabanı (`PasswordManager.db` ve ilişkili dosyaları) ve biyometrik ayarlarınızı içeren SharedPreferences dosyası (`BiometricPrefs_v1.xml`), Android işletim sisteminin Otomatik Yedekleme (Google Drive\'a yedekleme) özelliğinin <b>dışında tutulmuştur.</b> Bu ayar, `xml/backup_rules.xml` dosyasında belirtilmiştir. Genel uygulama ayarlarınızın (`AppGeneralPrefs_v1.xml`) yedeklenip yedeklenmeyeceği de bu kurallara tabidir (mevcut durumda o da hariç tutulmuştur).</p>
+
+        <h2>7. Veri Saklama Süresi ve Silme</h2>
+        <ul>
+            <li>Verileriniz, uygulama cihazınızda yüklü olduğu ve sizin tarafınızdan silinmediği sürece cihazınızda saklanır.</li>
+            <li>Uygulamayı cihazınızdan kaldırdığınızda, uygulama ile ilişkili tüm yerel veriler (veritabanı, SharedPreferences dosyaları) Android işletim sistemi tarafından silinir.</li>
+            <li>Uygulama içinden şifre kayıtlarınızı silebilirsiniz.</li>
+            <li>Ana parolanızı değiştirirseniz, tüm verileriniz yeni anahtarınızla yeniden şifrelenir.</li>
+        </ul>
+
+        <h2>8. Kullanılan İzinler</h2>
+        <ul>
+            <li><b>Biyometrik Donanım Kullanımı (`USE_BIOMETRIC`):</b> Eğer biyometrik giriş özelliğini kullanmayı seçerseniz, uygulama bu izni kullanarak Android Biyometrik sistemine erişir.</li>
+            <li>Uygulama, işlevleri için gereksiz başka hiçbir hassas izin (internet, konum, kişiler vb.) talep etmez.</li>
+        </ul>
+
+        <h2>9. Çocukların Gizliliği</h2>
+        <p>Bu uygulama genel kullanıcı kitlesine yöneliktir ve bilerek 13 yaşın altındaki çocuklardan kişisel bilgi toplamaz. Eğer 13 yaşın altında bir çocuğun bize bilgi verdiğini fark ederseniz, lütfen bizimle iletişime geçin.</p>
+
+        <h2>10. Bu Gizlilik Politikasındaki Değişiklikler</h2>
+        <p>Bu Gizlilik Politikası zaman zaman güncellenebilir. Herhangi bir değişiklik yapıldığında, yeni politikayı uygulama içinde erişilebilir hale getireceğiz ve \"Son Güncelleme\" tarihini değiştireceğiz. Değişiklikler yayınlandıktan sonra Uygulama\'yı kullanmaya devam etmeniz, yeni politikayı kabul ettiğiniz anlamına gelir.</p>
+
+        <h2>11. İletişim</h2>
+        <p>Bu Gizlilik Politikası veya veri uygulamalarımız hakkında herhangi bir sorunuz veya endişeniz varsa, lütfen bizimle iletişime geçin:</p>
+        <p>Bektaş GÜRSU<br/>E-posta: <a href="mailto:bektasgursu@gmail.com">bektasgursu@gmail.com</a></p>
+    </div>
+</body>
+</html>
